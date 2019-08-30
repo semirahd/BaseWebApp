@@ -14,8 +14,8 @@ $(document).ready(function(){
 })
 
 
-function getWeather() {
-  var url ="https://api.openweathermap.org/data/2.5/weather?q=Boston&units=imperial&APPID="+apiKey;
+function getWeather(searchQuery) {
+  var url ="https://api.openweathermap.org/data/2.5/weather?q="+searchQuery+"&units=imperial&APPID="+apiKey;
 
   $.ajax(url,{success: function(data){
 
@@ -24,4 +24,11 @@ function getWeather() {
     
     // this line of data logs the API call in the console --> console.log(data);
   }})
+}
+
+//we need to get the text that was entered into the WeatherApp Search Bar
+
+function searchWeather() {
+  var searchQuery = $(".search").val();
+  getWeather(searchQuery);
 }
