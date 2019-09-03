@@ -23,6 +23,8 @@ function getWeather(searchQuery) {
     $(".temp").text(data.main.temp);
     
     // this line of data logs the API call in the console --> console.log(data);
+  }, error:function(error){
+    $(".error-message").text("An error occured");
   }})
 }
 
